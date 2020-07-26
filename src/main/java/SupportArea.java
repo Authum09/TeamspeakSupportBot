@@ -28,7 +28,7 @@ public class SupportArea {
 
         if (!channelName.contains(supporterOnline == 0 ? "nicht" : "" + supporterOnline)) {
             Map<ChannelProperty, String> properties = new HashMap<>();
-            properties.put(ChannelProperty.CHANNEL_NAME,"Support ["+ (supporterOnline == 0 ? "nicht " : "" + supporterOnline) + " verfügbar]");
+            properties.put(ChannelProperty.CHANNEL_NAME,"Support ["+ (supporterOnline == 0 ? "nicht" : "" + supporterOnline) + " verfügbar]");
             api.editChannel(2, properties);
         }
 

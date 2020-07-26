@@ -21,13 +21,14 @@ public class MessageListener extends Thread{
 
                 if (msg.contains("ja")) {
                     SupportArea supportArea = new SupportArea(api);
-                    Supporter supporter = Main.supporterList.getObjectByClientId(e.getInvokerId());
+                    Supporter supporter = Main.supporterResponseList.getObjectByClientId(e.getInvokerId());
                     String name = "Support: " + supporter.beneficiary.client.getNickname();
                     supportArea.createSubChannel(name);
                     Channel channel = api.getChannelByNameExact(name,false);
                     supporter.move(channel.getId());
                     supporter.beneficiary.move(channel.getId());
-                    api.moveClient(54,1);
+                    api.moveClient(Main.queryClientId,1);
+                    Main.supporterResponseList.removeUser(supporter);
                 }
             }
         });

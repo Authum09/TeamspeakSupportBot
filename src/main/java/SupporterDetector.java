@@ -17,9 +17,10 @@ public class SupporterDetector extends Thread {
 
             for (Client client : clients) {
                 if (!client.isServerQueryClient()) {
-                    boolean isInSupporterGroup = isInSupporterGroup(client.getServerGroups());
+                    boolean isInSupporterGroup = isInGroup(client.getServerGroups(),Main.supporterGroupId);
                     boolean isInList = Main.supporterList.isInList(client.getId());
-                    if (isInSupporterGroup && !isInList) {
+                    boolean isInBusyGroup = isInGroup(client.getServerGroups(),Main.busyGroupId);
+                    if (isInSupporterGroup && !isInList && !isInBusyGroup) {
                         Main.supporterList.addUser(new Supporter(client, api));
                     } else if (!isInSupporterGroup && isInList) {
                         Main.supporterList.removeUser(client.getId());
@@ -30,16 +31,19 @@ public class SupporterDetector extends Thread {
             Main.supporterList.printList();
             System.out.println("Beneficiary Liste: ");
             Main.beneficiaryList.printList();
+            System.out.println("Response Liste: ");
+            Main.supporterResponseList.printList();
             System.out.println("------------------------");
         }
 
 
-    private boolean isInSupporterGroup(int[] arr) {
+    public static boolean isInGroup(int[] arr, int groupId) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == Main.supporterGroupId) {
+            if (arr[i] == groupId) {
                 return true;
             }
         }
         return false;
     }
+
 }

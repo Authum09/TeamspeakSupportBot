@@ -24,13 +24,24 @@ public class ChannelEvent extends Thread {
                         Beneficiary user = new Beneficiary(client, api);
                         Main.beneficiaryList.addUser(user);
                         Main.beneficiaryList.printList();
-                        Main.supporterList.getFirstObjectFromList().sendMessage(user.client.getNickname() + " möchte supportet werden. \n" +
+                        Supporter supporter = Main.supporterList.getFirstObjectFromList();
+                        supporter.sendMessage(user.client.getNickname() + " möchte supportet werden. \n" +
                                 "Bist du bereit dafür?");
-                        Main.supporterList.getFirstObjectFromList().beneficiary = user;
+                        api.addClientToServerGroup(Main.busyGroupId,supporter.client.getDatabaseId());
+                        supporter.beneficiary = user;
+                        Main.supporterList.removeUser(supporter);
+                        Main.supporterResponseList.addUser(supporter);
                     } else {
                         Main.beneficiaryList.removeUser(e.getClientId());
                     }
+                    int[] groupList = client.getServerGroups();
+                    boolean isInBusyGroup = SupporterDetector.isInGroup(groupList,Main.busyGroupId);
+                    if (e.getInvokerId() == -1 && isInBusyGroup) {
+                        api.removeClientFromServerGroup(Main.busyGroupId, client.getDatabaseId());
+                    }
                 }
+
+
             }
 
 

@@ -13,4 +13,10 @@ public class Supporter extends User{
     public void sendMessage(String message) {
         api.sendPrivateMessage(client.getId(),message);
     }
+
+    public void putBusyGroup() {
+        api.addClientToServerGroup(Main.busyGroupId,client.getDatabaseId());
+    }
+
+
 }

@@ -1,12 +1,16 @@
 import com.github.theholywaffle.teamspeak3.TS3Api;
 import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
+import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 
 public class Main {
 
     public static userList<Beneficiary> beneficiaryList = new userList<>();
     public static userList<Supporter> supporterList = new userList<>();
+    public static userList<Supporter> supporterResponseList = new userList<>();
     public static int supporterGroupId = 9;
+    public static int busyGroupId = 10;
+    public static int queryClientId;
 
     public static void main(String[] args) {
         final TS3Config config = new TS3Config();
@@ -17,13 +21,13 @@ public class Main {
         query.connect();
 
         TS3Api api = query.getApi();
-        api.login("support","vFbwcluL");
+        api.login("querry","PfQyMopI");
 
         api.selectVirtualServerById(1);
         api.setNickname("SupportBot");
 
-        SupportArea supportArea = new SupportArea(api);
-        supportArea.createSubChannel("tst");
+        Client querry = api.getClientByUId("lAGjYOK+SAqKBDj1UkXr2yK/tqM=");
+        queryClientId = querry.getId();
 
         ChannelEvent channelEvent = new ChannelEvent(api);
         channelEvent.start();
