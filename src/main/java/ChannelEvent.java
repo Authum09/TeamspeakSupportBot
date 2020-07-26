@@ -20,14 +20,14 @@ public class ChannelEvent extends Thread {
             public void onClientMoved(ClientMovedEvent e) {
                 Client client = api.getClientByNameExact(api.getClientInfo(e.getClientId()).getNickname(), false);
                 if (!client.isServerQueryClient()) {
-                    if (e.getTargetChannelId() == 2) {
+                    if (e.getTargetChannelId() == Config.supportChannelId) {
                         Beneficiary user = new Beneficiary(client, api);
                         Main.beneficiaryList.addUser(user);
                         Main.beneficiaryList.printList();
                         Supporter supporter = Main.supporterList.getFirstObjectFromList();
-                        supporter.sendMessage(user.client.getNickname() + " möchte supportet werden. \n" +
+                        supporter.sendMessage("\n" + user.client.getNickname() + " möchte supportet werden. \n" +
                                 "Bist du bereit dafür?");
-                        api.addClientToServerGroup(Main.busyGroupId,supporter.client.getDatabaseId());
+                        supporter.putBusyGroup();
                         supporter.beneficiary = user;
                         Main.supporterList.removeUser(supporter);
                         Main.supporterResponseList.addUser(supporter);

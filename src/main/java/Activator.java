@@ -15,7 +15,7 @@ public class Activator extends Thread{
             supporterDetector.supporterList();
             supportArea.updateSupportChannel();
             try {
-                Thread.sleep(5000);
+                Thread.sleep(Config.listRefreshTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

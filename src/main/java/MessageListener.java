@@ -27,7 +27,7 @@ public class MessageListener extends Thread{
                     Channel channel = api.getChannelByNameExact(name,false);
                     supporter.move(channel.getId());
                     supporter.beneficiary.move(channel.getId());
-                    api.moveClient(Main.queryClientId,1);
+                    api.moveClient(Main.queryClientId,Config.defaultChannelId);
                     Main.supporterResponseList.removeUser(supporter);
                 }
             }

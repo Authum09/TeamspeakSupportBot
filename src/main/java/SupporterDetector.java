@@ -27,13 +27,6 @@ public class SupporterDetector extends Thread {
                     }
                 }
             }
-            System.out.println("Supporter Liste: ");
-            Main.supporterList.printList();
-            System.out.println("Beneficiary Liste: ");
-            Main.beneficiaryList.printList();
-            System.out.println("Response Liste: ");
-            Main.supporterResponseList.printList();
-            System.out.println("------------------------");
         }
 
 
