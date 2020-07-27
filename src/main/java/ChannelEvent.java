@@ -23,7 +23,6 @@ public class ChannelEvent extends Thread {
                     if (e.getTargetChannelId() == Config.supportChannelId) {
                         Beneficiary user = new Beneficiary(client, api);
                         Main.beneficiaryList.addUser(user);
-                        Main.beneficiaryList.printList();
                         Supporter supporter = Main.supporterList.getFirstObjectFromList();
                         supporter.sendMessage("\n" + user.client.getNickname() + " möchte supportet werden. \n" +
                                 "Bist du bereit dafür?");

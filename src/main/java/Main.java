@@ -13,8 +13,10 @@ public class Main {
     public static int queryClientId;
 
     public static void main(String[] args) {
+        Config.readYaml();
         final TS3Config config = new TS3Config();
         config.setHost(Config.host);
+        config.setQueryPort(Config.queryPort);
         config.setFloodRate(TS3Query.FloodRate.UNLIMITED);
 
         final TS3Query query = new TS3Query(config);
@@ -25,6 +27,7 @@ public class Main {
 
         api.selectVirtualServerById(1);
         api.setNickname(Config.botName);
+
 
         Client querry = api.getClientByUId(Config.queryUUId);
         queryClientId = querry.getId();
