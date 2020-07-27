@@ -17,9 +17,9 @@ public class SupporterDetector extends Thread {
 
             for (Client client : clients) {
                 if (!client.isServerQueryClient()) {
-                    boolean isInSupporterGroup = isInGroup(client.getServerGroups(),Main.supporterGroupId);
+                    boolean isInSupporterGroup = isInGroup(client.getServerGroups(),Config.supporterGroupId);
                     boolean isInList = Main.supporterList.isInList(client.getId());
-                    boolean isInBusyGroup = isInGroup(client.getServerGroups(),Main.busyGroupId);
+                    boolean isInBusyGroup = isInGroup(client.getServerGroups(),Config.busyGroupId);
                     if (isInSupporterGroup && !isInList && !isInBusyGroup) {
                         Main.supporterList.addUser(new Supporter(client, api));
                     } else if (!isInSupporterGroup && isInList) {

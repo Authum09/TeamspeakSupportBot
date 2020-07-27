@@ -34,11 +34,6 @@ public class userList<T extends User> {
         }
     }
 
-    public void printList() {
-        for (T user : users) {
-            System.out.println(user.client.getNickname());
-        }
-    }
 
     public int size() {
         return users.size();

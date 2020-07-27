@@ -15,7 +15,7 @@ public class Supporter extends User{
     }
 
     public void putBusyGroup() {
-        api.addClientToServerGroup(Main.busyGroupId,client.getDatabaseId());
+        api.addClientToServerGroup(Config.busyGroupId,client.getDatabaseId());
     }
 
 

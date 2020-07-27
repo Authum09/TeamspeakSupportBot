@@ -15,6 +15,8 @@ public class Config {
 
     public static int defaultChannelId;
     public static int supportChannelId;
+    public static int supporterGroupId;
+    public static int busyGroupId;
     // In Millis
     public static int listRefreshTime;
 
@@ -30,8 +32,12 @@ public class Config {
             queryPassword = obj.get("queryPassword").toString();
             botName = obj.get("queryUserName").toString();
             queryUUId = obj.get("queryUUID").toString();
+
+            supporterGroupId = (int) obj.get("supporterGroupId");
+            busyGroupId = (int) obj.get("busyGroupId");
             defaultChannelId = (int) obj.get("defaultChannelId");
             supportChannelId = (int) obj.get("supportChannelId");
+
             listRefreshTime = (int) obj.get("listRefreshTime");
         } catch (NullPointerException e){
             System.out.println("Config invalid");

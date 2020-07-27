@@ -21,22 +21,25 @@ public class ChannelEvent extends Thread {
                 Client client = api.getClientByNameExact(api.getClientInfo(e.getClientId()).getNickname(), false);
                 if (!client.isServerQueryClient()) {
                     if (e.getTargetChannelId() == Config.supportChannelId) {
-                        Beneficiary user = new Beneficiary(client, api);
-                        Main.beneficiaryList.addUser(user);
-                        Supporter supporter = Main.supporterList.getFirstObjectFromList();
-                        supporter.sendMessage("\n" + user.client.getNickname() + " möchte supportet werden. \n" +
-                                "Bist du bereit dafür?");
-                        supporter.putBusyGroup();
-                        supporter.beneficiary = user;
-                        Main.supporterList.removeUser(supporter);
-                        Main.supporterResponseList.addUser(supporter);
-                    } else {
-                        Main.beneficiaryList.removeUser(e.getClientId());
+                        if (!client.isInServerGroup(Config.supporterGroupId)) {
+                            Beneficiary user = new Beneficiary(client, api);
+                            Main.beneficiaryList.addUser(user);
+                            Supporter supporter = Main.supporterList.getFirstObjectFromList();
+                            supporter.sendMessage("\n" + user.client.getNickname() + " möchte supportet werden. \n" +
+                                    "Bist du bereit dafür?");
+                            supporter.putBusyGroup();
+                            supporter.beneficiary = user;
+                            Main.supporterList.removeUser(supporter);
+                            Main.supporterResponseList.addUser(supporter);
+                        } else {
+                            Main.beneficiaryList.removeUser(e.getClientId());
+                        }
+
                     }
                     int[] groupList = client.getServerGroups();
-                    boolean isInBusyGroup = SupporterDetector.isInGroup(groupList,Main.busyGroupId);
+                    boolean isInBusyGroup = SupporterDetector.isInGroup(groupList, Config.busyGroupId);
                     if (e.getInvokerId() == -1 && isInBusyGroup) {
-                        api.removeClientFromServerGroup(Main.busyGroupId, client.getDatabaseId());
+                        api.removeClientFromServerGroup(Config.busyGroupId, client.getDatabaseId());
                     }
                 }
 

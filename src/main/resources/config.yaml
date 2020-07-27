@@ -5,6 +5,8 @@ queryPassword: "PfQyMopI"
 virtualServerId: 1
 queryUserName: "Support"
 queryUUID: "lAGjYOK+SAqKBDj1UkXr2yK/tqM="
+supporterGroupId: 9
+busyGroupId: 10
 defaultChannelId: 1
 supportChannelId: 2
 listRefreshTime: 2000

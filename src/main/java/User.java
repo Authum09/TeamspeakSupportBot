@@ -13,9 +13,6 @@ public class User{
         this.client = client;
     }
 
-    public int getUserId() {
-        return userId;
-    }
 
     public void move (int channelId) {
         api.moveClient(userId,channelId);
