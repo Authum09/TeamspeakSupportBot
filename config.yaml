@@ -1,13 +1,13 @@
-host: "authum.de"
-queryPort: 10011
-queryName: "querry"
-queryPassword: "PfQyMopI"
-virtualServerId: 1
-queryUserName: "Support"
-queryUUID: "lAGjYOK+SAqKBDj1UkXr2yK/tqM="
-supporterGroupId: 9
-busyGroupId: 10
-supportMessage: "Bist du bereit @USERNAME zu supporten"
-defaultChannelId: 1
-supportChannelId: 2
-listRefreshTime: 2000
+host: "YOUR HOSTNAME"
+queryPort: "QUERYPORT (default: 10011)"
+queryName: "QUERY NAME"
+queryPassword: "QUERY PASSWORD"
+virtualServerId: "VIRTUAL SERVER ID"
+botUserName: "NAME OF BOT"
+queryUUID: "UUID OF YOUR QUERY"
+supporterGroupId: "GROUP ID OF YOUR SUPPORT SERVER GROUP"
+busyGroupId: "GROUP ID OF YOUR BUSY SERVER GROUP"
+supportMessage: "MESSAGE THAT GET THE SUPPORTER"
+defaultChannelId: "ID OF YOUR ENTRANCEHALL"
+supportChannelId: "ID OF YOUR SUPPORT CHANNEL"
+listRefreshTime: "TIME IN WHICH YOUR USERLIST GET REFRESHED (recommend is 2000)"
