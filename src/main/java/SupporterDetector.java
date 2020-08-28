@@ -12,27 +12,27 @@ public class SupporterDetector extends Thread {
     }
 
 
-   public void supporterList() {
-            List<Client> clients = api.getClients();
+    public void supporterList() {
+        List<Client> clients = api.getClients();
 
-            for (Client client : clients) {
-                if (!client.isServerQueryClient()) {
-                    boolean isInSupporterGroup = isInGroup(client.getServerGroups(),Config.supporterGroupId);
-                    boolean isInList = Main.supporterList.isInList(client.getId());
-                    boolean isInBusyGroup = isInGroup(client.getServerGroups(),Config.busyGroupId);
-                    if (isInSupporterGroup && !isInList && !isInBusyGroup) {
-                        Main.supporterList.addUser(new Supporter(client, api));
-                    } else if (!isInSupporterGroup && isInList) {
-                        Main.supporterList.removeUser(client.getId());
-                    }
+        for (Client client : clients) {
+            if (!client.isServerQueryClient()) {
+                boolean isInSupporterGroup = isInGroup(client.getServerGroups(), Config.supporterGroupId);
+                boolean isInList = Main.supporterList.isInList(client.getId());
+                boolean isInBusyGroup = isInGroup(client.getServerGroups(), Config.busyGroupId);
+                if (isInSupporterGroup && !isInList && !isInBusyGroup) {
+                    Main.supporterList.addUser(new Supporter(client, api));
+                } else if (!isInSupporterGroup && isInList) {
+                    Main.supporterList.removeUser(client.getId());
                 }
             }
         }
+    }
 
 
     public static boolean isInGroup(int[] arr, int groupId) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == groupId) {
+        for (int j : arr) {
+            if (j == groupId) {
                 return true;
             }
         }

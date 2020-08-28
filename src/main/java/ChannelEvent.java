@@ -25,8 +25,9 @@ public class ChannelEvent extends Thread {
                             Beneficiary user = new Beneficiary(client, api);
                             Main.beneficiaryList.addUser(user);
                             Supporter supporter = Main.supporterList.getFirstObjectFromList();
-                            supporter.sendMessage("\n" + user.client.getNickname() + " möchte supportet werden. \n" +
-                                    "Bist du bereit dafür?");
+                            String supportMessage = "\n " + Config.supportMessage;
+                            supportMessage = supportMessage.replace("@USERNAME", user.client.getNickname());
+                            supporter.sendMessage(supportMessage);
                             supporter.putBusyGroup();
                             supporter.beneficiary = user;
                             Main.supporterList.removeUser(supporter);

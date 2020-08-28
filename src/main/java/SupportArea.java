@@ -7,28 +7,29 @@ import java.util.Map;
 public class SupportArea {
 
     private TS3Api api;
+
     public SupportArea(TS3Api api) {
         this.api = api;
     }
 
     public void createSubChannel(String channelName) {
         Map<ChannelProperty, String> properties = new HashMap<>();
-        properties.put(ChannelProperty.CHANNEL_FLAG_TEMPORARY,"1");
+        properties.put(ChannelProperty.CHANNEL_FLAG_TEMPORARY, "1");
         properties.put(ChannelProperty.CHANNEL_FLAG_MAXCLIENTS_UNLIMITED, "1");
-        properties.put(ChannelProperty.CPID,"" + Config.supportChannelId);
+        properties.put(ChannelProperty.CPID, "" + Config.supportChannelId);
 
-        api.createChannel(channelName,properties);
+        api.createChannel(channelName, properties);
 
     }
 
-    public void updateSupportChannel () {
+    public void updateSupportChannel() {
         int maxClients = api.getChannelInfo(Config.supportChannelId).getMaxClients();
         int supporterOnline = Main.supporterList.size();
         String channelName = api.getChannelInfo(Config.supportChannelId).getName();
 
-        if (!channelName.contains(supporterOnline == 0 ? "nicht" : "" + supporterOnline)) {
+        if (!channelName.contains(supporterOnline == 0 ? "not" : "" + supporterOnline)) {
             Map<ChannelProperty, String> properties = new HashMap<>();
-            properties.put(ChannelProperty.CHANNEL_NAME,"Support ["+ (supporterOnline == 0 ? "nicht" : "" + supporterOnline) + " verfügbar]");
+            properties.put(ChannelProperty.CHANNEL_NAME, "Support [" + (supporterOnline == 0 ? "not" : "" + supporterOnline) + " available]");
             api.editChannel(Config.supportChannelId, properties);
         }
 

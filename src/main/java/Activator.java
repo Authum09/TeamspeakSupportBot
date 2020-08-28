@@ -1,6 +1,6 @@
 import com.github.theholywaffle.teamspeak3.TS3Api;
 
-public class Activator extends Thread{
+public class Activator extends Thread {
 
     TS3Api api;
 
@@ -11,13 +11,14 @@ public class Activator extends Thread{
     public void run() {
         SupporterDetector supporterDetector = new SupporterDetector(api);
         SupportArea supportArea = new SupportArea(api);
-        while(true) {
+        while (true) {
             supporterDetector.supporterList();
             supportArea.updateSupportChannel();
             try {
                 Thread.sleep(Config.listRefreshTime);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Thread got interrupted during sleep");
+                System.exit(-1);
             }
         }
     }
