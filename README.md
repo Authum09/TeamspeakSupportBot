@@ -2,7 +2,7 @@
 A simple Teamspeak Bot to automats your support workflow
 
 # Installation
-Download the TeamspeakSupport.zip under releases, unzip it and move both files into a directory on your server.
+Download ![TeamspeakSupportBot.zip](https://github.com/Authum09/TeamspeakSupportBot/releases/download/v1.0/TeamspeakSupportBot.zip), unzip it and move both files into a directory on your server.
 
 # Configure config.yaml
 Look into the example.config.yaml and enter your own data into it
