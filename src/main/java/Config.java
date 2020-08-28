@@ -14,7 +14,6 @@ public class Config {
     public static String queryHostName;
     public static String queryPassword;
     public static String botName;
-    public static String queryUUId;
     public static int virtualServerId;
 
     public static String supportMessage;
@@ -29,15 +28,14 @@ public class Config {
     public static void readYaml() {
         Yaml yaml = new Yaml();
         try {
-            File myObj = new File("config.yaml");
-            InputStream inputStream = new FileInputStream(myObj);
+            File config = new File("config.yaml");
+            InputStream inputStream = new FileInputStream(config);
             Map<String, Object> obj = yaml.load(inputStream);
             host = obj.get("host").toString();
             queryPort = (int) obj.get("queryPort");
             queryHostName = obj.get("queryName").toString();
             queryPassword = obj.get("queryPassword").toString();
-            botName = obj.get("queryUserName").toString();
-            queryUUId = obj.get("queryUUID").toString();
+            botName = obj.get("botUserName").toString();
             virtualServerId = (int) obj.get("virtualServerId");
             supportMessage = obj.get("supportMessage").toString();
             supporterGroupId = (int) obj.get("supporterGroupId");

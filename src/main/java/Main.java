@@ -1,7 +1,6 @@
 import com.github.theholywaffle.teamspeak3.TS3Api;
 import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
-import com.github.theholywaffle.teamspeak3.api.wrapper.Client;
 
 public class Main {
 
@@ -9,7 +8,6 @@ public class Main {
     public static userList<Beneficiary> beneficiaryList = new userList<>();
     public static userList<Supporter> supporterList = new userList<>();
     public static userList<Supporter> supporterResponseList = new userList<>();
-    public static int queryClientId;
 
     public static void main(String[] args) {
 
@@ -33,8 +31,6 @@ public class Main {
             query.exit();
         }));
 
-        Client queryClient = api.getClientByUId(Config.queryUUId);
-        queryClientId = queryClient.getId();
 
         ChannelEvent channelEvent = new ChannelEvent(api);
         channelEvent.start();
