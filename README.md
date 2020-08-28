@@ -2,11 +2,13 @@
 A simple Teamspeak Bot to automats your support workflow
 
 # Installation
+## Download
 Download ![TeamspeakSupportBot.zip](https://github.com/Authum09/TeamspeakSupportBot/releases/download/v1.0/TeamspeakSupportBot.zip), unzip it and move both files into a directory on your server.
-
-# Configure config.yaml
+## Configure config.yaml
 Look into the example.config.yaml and enter your own data into it
 You will need a support channel, aswell as two server groups (one to support and a busy group)
+## Start
+Run in your command line: `java -jar TeamspeakSupportBot.jar`
 # How to use it
 After installing this .jar onto your server and running it, you will see a query connected on your teamspeak
 ![](https://uploads.authum.de/XISO8/RItOhOji94.png/raw)
