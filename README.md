@@ -27,4 +27,4 @@ After writing yes the supporter gets ,together with the user that needs support,
 ![](https://uploads.authum.de/XISO8/JIHuPEVa04.png/raw)
 
 After the support conversation has ended both user and supporter can leave the channel, 
-it gets removed and the supporter gets removed from busy group and is ready again to support
+it gets removed and the supporter gets removed from busy group and is ready to support again
