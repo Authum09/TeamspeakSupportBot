@@ -1,5 +1,5 @@
 # Teamspeak Support Bot
-A simple Teamspeak Bot to automats your support workflow
+A simple Teamspeak Bot to automates your support workflow
 
 # Installation
 ## Download
